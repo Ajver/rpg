@@ -17,6 +17,8 @@
     document.querySelector('#sword').addEventListener('click', () => {
         scrollToSection('main', 500);
     });
+   
+    removeCurtain();
   }
 
   let curtain = document.createElement('div');
@@ -38,10 +40,13 @@
     document.querySelector('head').innerHTML = pageHeadFrame;
     document.querySelector('body').innerHTML = pageBodyFrame;
     document.querySelector('main').innerHTML = mainContent;
-    document.querySelector('html').removeChild(curtain);
 
     initSystems();
   }
+
+  const removeCurtain = () => {
+    document.querySelector('html').removeChild(curtain);
+  } 
 
   const pageHeadFrame = `
     <meta charset="UTF-8">
