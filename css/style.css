@@ -44,6 +44,21 @@ body {
   color: #FAFCF7;
 }
 
+body::after {
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 1000;
+}
+
+body.loaded::after {
+  content: none;
+}
+
 .page-header {
   background-image: url(../img/warhammer-bg2.jpg);
   -webkit-background-size: cover;
@@ -112,7 +127,7 @@ body {
   width: 42px;
   height: 200px;
   cursor: pointer;
-  animation: sword-go-down .3s linear .5s forwards;
+  animation: sword-go-down .3s linear .15s forwards;
 
   transition: background-image .4s;
 }
@@ -129,6 +144,13 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: normal;
+}
+
+h3 {
+  font-size: 50rem;
+  font-weight: normal;
+  border-bottom: 2px solid #FAFCF7;
+  margin-bottom: 20px;
 }
 
 p {
@@ -152,10 +174,51 @@ main > article {
   overflow: auto;
 }
 
+.page-section {
+  margin: 80px 0;
+}
+
+.img-in-text-wraper {
+  width: 300px;
+  overflow: hidden;
+}
+
+.img-in-text {
+  width: 100%;
+  transition: transform .3s;
+}
+
+.img-in-text:hover {
+  transform: scale(1.3);
+}
+
+.right {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.left {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
 .wrap {
   width: 100%;
   max-width: 1000px;
   margin: auto;
+}
+
+.galery-img {
+  width: 100%;
+  max-width: 1920px;
+
+  transition: transform .5s;
+}
+
+.galery-img:hover {
+  transform: scale(1.2);
 }
 
 .page-footer {
@@ -184,6 +247,15 @@ main > article {
     justify-content: center;
     align-items: flex-end;
     padding-right: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  .img-in-text-wraper {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    float: none;
   }
 }
 
