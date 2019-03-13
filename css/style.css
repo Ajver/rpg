@@ -30,6 +30,7 @@ html {
   Orange:  DE7C35
   Gray:    B8A291
   Drk Gray:57504b
+  VDrkGry: 302A26
   White:   FAFCF7  
 
 */
@@ -60,6 +61,7 @@ body {
   position: fixed;
   display: flex;
   justify-content: space-evenly;
+  z-index: 100;
 }
 
 .top-bar::before {
@@ -75,18 +77,12 @@ body {
 .page-logo {
   font-weight: normal;
   font-family: 'Celtic';
-  font-size: 70px;
+  margin-top: 5px;
+  font-size: 60px;
   padding-bottom: 0;
   text-shadow: 0 3px 10px black;
   text-align: center;
-  transform: translateY(50px);
   border-radius: 30px;
-  
-  transition: transform .5s;
-}
-
-.page-logo.sticy {
-  transform: translateY(0);
 }
 
 .main-nav {
@@ -94,7 +90,6 @@ body {
   height: 100%;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 10%;
 }
 
 .main-nav {
@@ -105,6 +100,25 @@ body {
   color: #FAFCF7;
   text-decoration: none;
   margin: 0 20px;
+}
+
+.sword {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  background-image: url(../img/sword.png);
+  background-size: cover;
+  width: 42px;
+  height: 200px;
+  cursor: pointer;
+  animation: sword-go-down .3s linear .5s forwards;
+
+  transition: background-image .4s;
+}
+
+.sword:hover {
+  background-image: url(../img/sword-hover.png);
 }
 
 h2 {
@@ -121,6 +135,16 @@ p {
   margin: 20px 0;
 }
 
+a {
+  color: #DE7C35;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 main > article {
   padding: 40px;
   padding-top: 0;
@@ -134,16 +158,19 @@ main > article {
   margin: auto;
 }
 
+.page-footer {
+  font-size: 30rem;
+  background-color: #302a26;
+  overflow: auto;
+}
+
 .page-footer p {
   text-align: center;
 }
 
 @media (max-width: 820px) {
-  .page-logo,
-  .page-logo.sticy {
-    position: static;
+  .page-logo{
     font-size: 60rem;
-    transform: translateY(0);
   }
   .top-bar {
     height: 180px;
@@ -157,5 +184,27 @@ main > article {
     justify-content: center;
     align-items: flex-end;
     padding-right: 0;
+  }
+}
+
+@keyframes sword-go-down {
+  0% {
+    bottom: 100%;
+  }
+
+  25% {
+    bottom: 95%;
+  }
+
+  50% {
+    bottom: 80%;
+  }
+
+  75% {
+    bottom: 45%;
+  }
+
+  100% {
+    bottom: 30px;
   }
 }
